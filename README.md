@@ -150,17 +150,51 @@ All commit messages should be lowercase and concise (ideally under 50 characters
    git checkout -b feature/your-feature-name
    ```
 3. Make your changes
-4. Format the code:
+4. Ensure Husky pre-commit hooks are running properly:
    ```bash
-   pnpm run pretty
+   # Verify Husky is installed
+   pnpm husky install
+
+   # Pre-commit hooks will automatically run on commit:
+   # - Code formatting (prettier)
+   # - Linting (eslint)
+   # - Type checking (TypeScript)
+   # - Unit tests
    ```
-5. Build the project to ensure everything works:
+5. Before submitting PR, run all checks locally:
    ```bash
+   # Format code
+   pnpm run pretty
+
+   # Run linting
+   pnpm run lint
+
+   # Build options
+   # For local build:
    pnpm run build
+
+   # For Docker build:
+   docker compose up --build
    ```
 6. Commit your changes with a descriptive message following our commit conventions
 7. Push your branch and create a Pull Request to the `development` branch
 8. Wait for review and address any feedback
+
+### Pre-commit Hooks
+
+We use Husky to enforce code quality before commits. The following checks run automatically:
+
+- **pre-commit**: 
+  - Code formatting with Prettier
+  - ESLint check
+  - TypeScript type check
+  - Unit test check
+
+- **commit-msg**:
+  - Commit message format validation
+  - Ensures commit messages follow our conventions
+
+If any of these checks fail, your commit will be rejected. Fix the issues and try committing again.
 
 ### Code Style
 
