@@ -51,12 +51,17 @@ pnpm run dev
 
 ```
 LLMChecker/
-├── src/                 # Source code
-├── public/              # Static assets
-├── components/          # Reusable UI components
-├── data/                # LLM specifications database
-├── tests/               # Test files
-└── ...
+├── src/
+│   ├── app/                    # App router, layouts
+│   │   ├── layout.tsx         # Root layout
+│   │   ├── page.tsx          # Home page
+│   │   └── (routes)/         # Route groups
+│   ├── components/            # React components
+│   │   ├── ui/              # Reusable UI components
+│   ├── utils/               # Helper functions
+│   │   
+├── prisma/         # Prisma client and schema
+│   │   └── db/             # Database utilities
 ```
 
 ### Commands
